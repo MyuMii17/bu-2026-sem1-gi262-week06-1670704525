@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 namespace MidtermExam.Prob02
@@ -13,6 +14,22 @@ namespace MidtermExam.Prob02
         public LinkedList<int> SortAscending(LinkedList<int> list)
         {
             // TODO: Implement sorting algorithm for LinkedList<int> (Ascending)
+            if(list == null) return null;
+            LinkedListNode<int> current = list.First;
+            LinkedListNode<int> next = current.Next;
+            for (int i = 0; i < list.Count - 1; i++)
+            {
+                for (int j = 0; j < list.Count; j++)
+                {
+                    if (current.Value > next.Value)
+                    {
+                        LinkedListNode<int> newV = current;
+                        current.Value = next.Value;
+                        next.Value = newV.Value;
+                    }
+                }
+                //current = current.Next;
+            }
             return list;
         }
 
